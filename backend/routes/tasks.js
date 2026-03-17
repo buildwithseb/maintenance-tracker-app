@@ -13,8 +13,13 @@ async function getTasksCollection() {
     return db.collection('tasks');
 }
 
+router.get('/', (req, res) => {
+    res.send('Backend is running');
+})
 
-
+router.get('/health', (req, res) => {
+    res.status(200).json({ ok: true });
+})
 
 router.post('/tasks', async (req, res, next) => {
     try {
