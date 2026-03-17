@@ -6,7 +6,7 @@ class TrackerApp {
     }
 
     loadTasks() {
-        API.apiHelper('GET', 'http://localhost:3001/tasks')
+        API.apiHelper('GET', 'https://maintenance-tracker-app-rq42.onrender.com/tasks')
             .then(data => {
                 this.taskList = data.tasks;
                 this.renderTasks();
@@ -93,7 +93,7 @@ class TrackerApp {
 
         if (this.editingTaskId !== null) {
 
-            API.apiHelper("PATCH", `http://localhost:3001/tasks/${this.editingTaskId}`, newTask)
+            API.apiHelper("PATCH", `https://maintenance-tracker-app-rq42.onrender.com/tasks/${this.editingTaskId}`, newTask)
                 .then(data => {
 
                     this.resetFormState();
@@ -102,7 +102,7 @@ class TrackerApp {
                 .catch(err => alert(err.message));
         } else {
 
-            API.apiHelper("POST", "http://localhost:3001/tasks", newTask)
+            API.apiHelper("POST", "https://maintenance-tracker-app-rq42.onrender.com/tasks", newTask)
                 .then(data => {
                     this.resetFormState();
                     this.loadTasks()
@@ -138,7 +138,7 @@ class TrackerApp {
 
 
     deleteTaskHandler(taskId) {
-        API.apiHelper("DELETE", `http://localhost:3001/tasks/${taskId}`)
+        API.apiHelper("DELETE", `https://maintenance-tracker-app-rq42.onrender.com/tasks/${taskId}`)
             .then(data => {
                 this.loadTasks();
                 this.resetFormState();
