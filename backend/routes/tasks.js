@@ -1,29 +1,7 @@
 const express = require('express');
-const { MongoClient, ObjectId } = require('mongodb');
+const { ObjectId } = require('mongodb');
 
 const router = express.Router();
-
-const uri = process.env.MONGODB_URI
-
-const client = new MongoClient(uri);
-
-async function getTasksCollection() {
-    await client.connect();
-    const db = client.db('maintenanceTrackerDB');
-    return db.collection('tasks');
-}
-
-// router.get('/', async (req, res) => {
-
-//     res.send(`Backend is runningfff `);
-
-
-
-// })
-
-// router.get('/health', (req, res) => {
-//     res.status(200).json({ ok: true });
-// })
 
 router.post('/tasks', async (req, res, next) => {
     try {
@@ -33,7 +11,8 @@ router.post('/tasks', async (req, res, next) => {
             return res.status(400).json({ message: 'Machine Id & Task title are required' });
         }
 
-        const tasksCollection = await getTasksCollection();
+        const tasksCollection = req.app.locals.tasksCollection;
+
         const newTask = {
             machineId: req.body.machineId,
             taskTitle: req.body.taskTitle,
@@ -64,7 +43,7 @@ router.post('/tasks', async (req, res, next) => {
 
 router.get('/tasks', async (req, res, next) => {
     try {
-        const tasksCollection = await getTasksCollection();
+        const tasksCollection = req.app.locals.tasksCollection;
         const tasks = await tasksCollection.find().toArray();
 
         res.json({
@@ -83,7 +62,7 @@ router.delete(`/tasks/:id`, async (req, res, next) => {
     try {
 
         const taskId = req.params.id;
-        const tasksCollection = await getTasksCollection();
+        const tasksCollection = req.app.locals.tasksCollection;
 
         const result = await tasksCollection.deleteOne({
             _id: new ObjectId(taskId)
@@ -114,7 +93,7 @@ router.patch(`/tasks/:id`, async (req, res, next) => {
             return res.status(400).json({ message: 'Machine Id & Task title are required' });
         }
 
-        const tasksCollection = await getTasksCollection();
+        const tasksCollection = req.app.locals.tasksCollection;
 
         const updatedTask = {
             machineId: req.body.machineId,
