@@ -6,7 +6,8 @@ class TrackerApp {
     }
 
     loadTasks() {
-        API.apiHelper('GET', 'https://maintenance-tracker-app-rq42.onrender.com/tasks')
+        API.apiHelper('GET', `${process.env.API_URL}/tasks`)
+            //API.apiHelper('GET', 'http://localhost:3001/tasks')
             .then(data => {
                 this.taskList = data.tasks;
                 this.renderTasks();
@@ -83,7 +84,7 @@ class TrackerApp {
         const status = document.getElementById("status").value;
         const priority = document.getElementById("priority").value;
         const notes = document.getElementById("notes").value;
-      
+
         if (!machineId.trim() || !taskTitle.trim()) {
             alert("Please enter a machine ID and a task title before adding a task");
             return;
@@ -93,7 +94,7 @@ class TrackerApp {
 
         if (this.editingTaskId !== null) {
 
-            API.apiHelper("PATCH", `https://maintenance-tracker-app-rq42.onrender.com/tasks/${this.editingTaskId}`, newTask)
+            API.apiHelper("PATCH", `${process.env.API_URL}/tasks/${this.editingTaskId}`, newTask)
                 .then(data => {
 
                     this.resetFormState();
@@ -102,7 +103,9 @@ class TrackerApp {
                 .catch(err => alert(err.message));
         } else {
 
-            API.apiHelper("POST", "https://maintenance-tracker-app-rq42.onrender.com/tasks", newTask)
+            API.apiHelper("POST", `${process.env.API_URL}/tasks`, newTask)
+                //API.apiHelper("POST", "http://localhost:3001/tasks", newTask)
+
                 .then(data => {
                     this.resetFormState();
                     this.loadTasks()
@@ -138,7 +141,8 @@ class TrackerApp {
 
 
     deleteTaskHandler(taskId) {
-        API.apiHelper("DELETE", `https://maintenance-tracker-app-rq42.onrender.com/tasks/${taskId}`)
+        API.apiHelper("DELETE", `${process.env.API_URL}/tasks/${taskId}`)
+            //API.apiHelper("DELETE", `http://localhost:3001/tasks/${taskId}`)
             .then(data => {
                 this.loadTasks();
                 this.resetFormState();
