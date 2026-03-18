@@ -16,7 +16,7 @@ module.exports = {
     ],
     devServer: {
         static: {
-            directory: path.resolve(__dirname),//serve index.html (remove 'dist' if index.html in root folder
+            directory: path.resolve(__dirname, 'dist'),//serve index.html (remove 'dist' if index.html in root folder
         },
         open: true, //opens browser window automatically
     }
