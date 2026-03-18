@@ -9,7 +9,10 @@ module.exports = {
         filename: 'bundle.js',
     },
     plugins: [
-        new Dotenv()
+        new Dotenv({
+            systemvars: true, // lets the plugin use environment variable from vercel instead of .env file
+            silent: true,
+        })
     ],
     devServer: {
         static: {
