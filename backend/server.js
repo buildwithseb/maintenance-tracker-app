@@ -27,9 +27,9 @@ async function startServer() {
 
         app.use(tasksRoutes);
 
-        const port = process.env.PORT || 3001;
+        const port = process.env.PORT || 3000;
         app.listen(port, () => {
-            console.log(`Server running on port ${process.env.PORT || 3001}`);
+            console.log(`Server running on port ${process.env.PORT || 3000}`);
         });
     } catch (error) {
         console.error('Failed to start server:', error);
