@@ -47,24 +47,26 @@ npm install
 
 #### Database Setup (MongoDB Atlas)
 
-This project uses MongoDB Atlas (cloud database).
+    This project uses MongoDB Atlas (cloud database).
 
-Steps:
-	1.	Create a free cluster on MongoDB Atlas
-	2.	Create a database user
-	3.	Get your connection string
+    Steps:
+	    1.	Create a free cluster on MongoDB Atlas
+	    2.	Create a database user
+	    3.	Get your connection string
 
-Example:
+    Example:
 
-mongodb+srv://username:password@cluster.mongodb.net/maintenance-app
+    mongodb+srv://username:password@cluster.mongodb.net/maintenance-app
 
 ### Environment Variables
 
-Rename .env.example to .env inside the /backend folder and add:
+    Rename .env.example to .env inside the /backend folder and replace "your_mongodb_connection_string" with your connection string.
 
+```bash
 MONGODB_URI=your_mongodb_connection_string
 PORT=3000
 FRONTEND_URL=http://localhost:8080
+```
 
 ### Start Backend
 
