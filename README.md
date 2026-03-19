@@ -78,7 +78,7 @@ http://localhost:3000
 
 ---
 
-## 3. Setup Frontend
+**3. Setup Frontend**
 
 Open a new terminal:
 ```bash
