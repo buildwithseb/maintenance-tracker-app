@@ -31,19 +31,21 @@ A simple full-stack app to manage maintenance tasks for equipment (service, brea
 
 ## Run Locally
 
+### 1. Clone the repository
+
 ```bash
 git clone https://github.com/your-username/maintenance-tracker-app.git
 cd maintenance-tracker-app
 ```
 
-## 2. Setup Backend
+### 2. Setup Backend
 
 ```bash
 cd backend
 npm install
 ```
 
-## Database Setup (MongoDB Atlas)
+#### Database Setup (MongoDB Atlas)
 
 This project uses MongoDB Atlas (cloud database).
 
@@ -56,7 +58,7 @@ Example:
 
 mongodb+srv://username:password@cluster.mongodb.net/maintenance-app
 
-## Environment Variables
+### Environment Variables
 
 Rename .env.example to .env inside the /backend folder and add:
 
@@ -64,7 +66,7 @@ MONGODB_URI=your_mongodb_connection_string
 PORT=3000
 FRONTEND_URL=http://localhost:8080
 
-## Start Backend
+### Start Backend
 
 ```bash
 npm start
@@ -87,25 +89,6 @@ Frontend runs on:
 http://localhost:8080
 
 ⸻
-
-## Project Structure
-
-maintenance-tracker-app/
-│
-├── backend/
-│   ├── routes/
-│   │   └── tasks.js
-│   ├── app.js
-│   ├── .env
-│   └── package.json
-│
-├── frontend/
-│   ├── src/
-│   │   └── app.js
-│   ├── index.html
-│   ├── styles.css
-│   ├── webpack.config.js
-│   └── package.json
 
 
 ⸻
