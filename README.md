@@ -35,15 +35,15 @@ A simple full-stack app to manage maintenance tasks for equipment (service, brea
 
 ```bash
 git clone https://github.com/your-username/maintenance-tracker-app.git
-cd maintenance-tracker-app
-```
+cd maintenance-tracker-app```
+
 
 ### 2. Setup Backend
 
 ```bash
 cd backend
 npm install
-```
+
 
 #### Database Setup (MongoDB Atlas)
 
@@ -66,13 +66,12 @@ npm install
 MONGODB_URI=your_mongodb_connection_string
 PORT=3000
 FRONTEND_URL=http://localhost:8080
-```
 
 ### Start Backend
 
 ```bash
 npm start
-```
+
 Backend runs on:
 http://localhost:3000
 
@@ -85,13 +84,10 @@ Open a new terminal:
 cd frontend
 npm install
 npm run build:dev
-```
+
 
 Frontend runs on:
 http://localhost:8080
-
-⸻
-
 
 ⸻
 
