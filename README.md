@@ -1,15 +1,17 @@
 # Maintenance Tracker App
 
+<br>
+
 A simple full-stack app to manage maintenance tasks for equipment (service, breakdowns, repairs).
 
----
+<br>
 
 ## Live
 
 - Frontend: https://maintenance-tracker-app-zeta.vercel.app/
 - Backend: https://maintenance-tracker-app-rq42.onrender.com/tasks
 
----
+<br>
 
 ## Tech Stack
 
@@ -18,7 +20,7 @@ A simple full-stack app to manage maintenance tasks for equipment (service, brea
 - Database: MongoDB Atlas  
 - Deployment: Vercel + Render  
 
----
+<br>
 
 ## Features
 
@@ -27,96 +29,97 @@ A simple full-stack app to manage maintenance tasks for equipment (service, brea
 - Set priority and type  
 - Add notes  
 
----
+<br>
 
 ## Run Locally
 
-**1. Clone the repository**
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/maintenance-tracker-app.git
+git clone https://github.com/buildwithseb/maintenance-tracker-app.git
 cd maintenance-tracker-app
 ```
----
 
-**2. Setup Backend**
+<br>
+
+### 2. Set Up the Backend
 
 ```bash
 cd backend
 npm install
+cp .env.example .env
 ```
 
+Configure the `.env` file with your MongoDB Atlas connection string:
 
-**Database Setup (MongoDB Atlas)**
-
-- This project uses MongoDB Atlas (cloud database).
-
-Steps:
-
-1.	Create a free cluster on MongoDB Atlas
-2.	Create a database user
-3.	Get your connection string
-
-**Environment Variables**
-
-- Rename .env.example to .env inside the /backend folder and replace "your_mongodb_connection_string" with your connection string.
-
-```bash
+```env
 MONGODB_URI=your_mongodb_connection_string
 PORT=3000
-FRONTEND_URL=http://localhost:8080
+FRONTEND_URL=http://localhost:8081
 ```
 
-**Start Backend**
+> This project uses MongoDB Atlas. You will need a MongoDB Atlas cluster, database user, and connection string.
+
+Start the backend:
 
 ```bash
 npm start
 ```
 
-Backend runs on:
-http://localhost:3000
+The API will run at `http://localhost:3000`.
 
----
+<br>
 
-**3. Setup Frontend**
+### 3. Set Up the Frontend
 
-Open a new terminal:
+Open a new terminal from the project root:
+
 ```bash
 cd frontend
 npm install
+cp .env.example .env
+```
+
+Configure the frontend `.env`:
+
+```env
+API_URL=http://localhost:3000
+```
+
+Then start the development server:
+
+```bash
 npm run build:dev
 ```
 
-Frontend runs on:
-http://localhost:8080
+The application will run at `http://localhost:8081`.
 
-⸻
+<br>
 
 ## Challenges & Learnings
-	•	Handling CORS between Vercel (frontend) and Render (backend)
-	•	Structuring a full-stack app (frontend + backend separation)
-	•	Managing environment variables securely
-	•	Connecting Node.js to MongoDB Atlas
-	•	Debugging API errors and async flows
 
-⸻
+Through this project, I gained practical experience with:
+
+- Configuring CORS between separately deployed frontend and backend applications
+- Structuring a full-stack application with separate frontend and backend services
+- Managing environment variables across development and production environments
+- Connecting a Node.js/Express backend to MongoDB Atlas
+- Debugging REST API requests and asynchronous JavaScript
+
+<br>
 
 ## Future Improvements
-	•	Authentication (user accounts)
-	•	Search & filtering
-	•	Improved UI/UX
-	•	Pagination
-	•	Mobile responsiveness
 
-⸻
+- User authentication and accounts
+- Search and filtering
+- Improved UI/UX and form validation
+- Mobile responsiveness
+
+<br>
 
 ## Author
 
-Sébastien Champeau
-	•	GitHub: https://github.com/buildwithseb
+**Sebastien Champeau**
+
+GitHub: [github.com/buildwithseb](https://github.com/buildwithseb)
 	
-⸻
-
-## Show your support
-
-If you like this project, give it a ⭐️ on GitHub!
